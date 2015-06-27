@@ -1,0 +1,38 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>File API Sample</title>
+
+<script type="text/javascript">
+  function test(){
+    document.getElementById("btndownload").addEventListener("click", function () {
+    var text = document.getElementById("text").value;
+    var blob=new Blob([text]);
+
+    var a = document.createElement("a");
+    var label = document.createTextNode("ダウンロード");
+    var disp = document.getElementById("disp");
+
+    // （3）createObjectURLで（2）のテキストへのリンクを作成
+    disp.innerHTML = '<a href="' + window.URL.createObjectURL(blob) + '" target="_blank">file</a>';
+    },false);
+  }
+</script>
+
+</head>
+<body onload="test()">
+    <div class="page">
+        <header>
+        </header>
+        <section id="main">
+            <textarea id="text" placeholder="テキストを入力してください。"></textarea><br />
+            <button id="btndownload">ファイル作成</button>
+            <div id="disp"> </div>
+        </section>
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>

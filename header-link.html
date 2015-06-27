@@ -1,0 +1,36 @@
+﻿<link rel="import" href="bower_components/polymer/polymer.html">
+<dom-module id="header-link">
+  <!-- 一番外側のテンプレートが要素のshadow DOMを定義します -->
+  <template>
+  <style>
+    .header-link{
+      float:left;
+      width:100px;
+      height:100%;
+      text-align:center;
+    }
+    div.header-link:hover{
+      background:#3CA39C;
+    }
+    a.header-link{
+      text-decoration: none;
+    }
+  </style>
+    <template is="dom-repeat" items="{{links}}">
+      <div class="header-link"><a href="{{item.to}}">{{item.where}}</a></div>
+    </template>
+  </template>
+  <script>
+    Polymer({
+     is:"header-link",
+     ready: function() {
+       this.links = [
+         {to:"#",where:"人材管理"},
+         {to:"#",where:"案件管理"},
+         {to:"#",where:"検索"},
+         {to:"#",where:"テスト"}
+       ];
+     }
+    });
+  </script>
+</dom-module>

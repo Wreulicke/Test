@@ -1,0 +1,37 @@
+    html{
+      background:#F9F5D0;
+      margin:0 auto;
+    }
+    body{  
+      margin:0px auto;
+      padding:20px 0;
+      width:100%;
+    }   
+    header{
+      position:fixed!important;
+      position:absolute;
+      top:0;
+      left:0;
+      margin:0 auto;
+      width:100%;  
+      height:50px;  
+      background-color: #44C2B3;  
+      color: #fff;  
+     }  
+    footer{  
+      position:fixed!important;
+      position:absolute;
+      bottom:0;
+      left:0;
+      margin:0 auto;
+      width:100%;  
+      height: 50px;  
+      background-color: #D65F63;  
+      color: #fff;  
+    }  
+    #content{  
+      margin:50px auto;
+      width:80%;
+      height: 100%;  
+      overflow: auto;   
+    }
