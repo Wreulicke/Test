@@ -1,13 +1,21 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <dom-module id="proto-element">
-  <template id="template">
-    <h1>サイト名：<content></content></h1>
-  </template>
-<script>
-  Polymer({
-    is: "proto-element",
-    ready: function() {
+  <style>
+    :host h1{
+      background:white;
     }
-  });
-</script>
+  </style>
+  <template>
+    <h1>サイト名：<span>{{title}}</span></h1>
+  </template>
+  <script>
+    Polymer({
+      is: "proto-element",
+      properties:{
+        title:String
+      },
+      ready: function() {
+      }
+    });
+  </script>
 <dom-module>
