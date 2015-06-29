@@ -1,0 +1,55 @@
+<html>
+<head>
+<link rel="stylesheet" href="mermaid.css" type="text/css" ></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="mermaid.full.js"></script>
+<script>
+$(document).ready(function(){
+        mermaid.ganttConfig = {
+	
+    numberSectionStyles: 2 // 0:モノクロ, 1以上:色分けあり。数字は色分けするセクションの数。
+        
+};
+	$(".mer").html($("#rawtext").val());
+	$(".mer").removeAttr("data-processed").html($("#rawtext").val());
+	mermaid.init(".mer");
+	$("#rawtext").keydown(function(){
+		console.log("test");
+		$(".mer").removeAttr("data-processed").html($(this).val());
+		mermaid.init(".mer");
+        });
+});
+</script>
+</head>
+<body>
+<textarea id="rawtext" style="">
+gantt
+        dateFormat  YYYY-MM-DD
+        title 開発フロー
+
+        section marketing
+        調査            :des1, 2015-07-01,5w
+        資料作成               :des2, after des1, 5w
+        マーケティング               :des3, after des2, 20w
+
+        section backend
+        インフラ構築:a,2015-07-01,5w
+        バックエンドプロトタイプ:after a,5w 
+        開発:15w
+
+        section front
+        プロトタイプ:2015-07-15,8w
+        開発:15w
+        
+        section all
+        企画:2015-07-01,5w
+        レビュー:after a,5w
+        システム設計:system,after a,15w 
+        ドキュメント作成:after system,10w
+</textarea>
+<div class="mer" style="">
+graph LR;
+A-->B;
+</div>
+</body>
+</html>

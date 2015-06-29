@@ -1,0 +1,54 @@
+<html>
+<head>
+<link rel="stylesheet" href="joint.css" type="text/css" ></link>
+<script src="joint.js"></script>
+<script>
+$(function(){
+var Model=Backbone.Model.extend();
+var model=new Model();
+var Output = Backbone.View.extend({
+    el: "#err",
+    initialize:function(e){
+        _.bindAll(this, "render");  // (3)
+        this.model.bind("change", this.render); // (4)
+        this.render(); // (5)
+    },
+    render: function () {
+        $("#myholder").html("");
+        this.$el.html(eval(this.model.get("input")));
+        return this;
+    }
+});
+var Input= Backbone.View.extend({
+    el: "#rawtext",
+    events: {
+        "keyup": function (e) {
+            console.log(e.keyCode);
+            localStorage.input=this.$el.val();
+	    if(e.keyCode==191){
+	       this.model.set("input",this.$el.val());
+               outputView.render();
+	    }
+	    
+        }
+    }
+});
+var outputView=new Output({"model":model});
+var inputView=new Input({"model":model});
+inputView.$el.val(localStorage.input);
+$("#exec").click(function(){
+	inputView.model.set("input",inputView.$el.val());
+});
+});
+</script>
+</head>
+<body>
+<textarea id="rawtext" style="width:600;height:400" spellcheck="false">
+</textarea>
+<button id="exec">exec</button>
+<div id="err" style="">
+</div>
+<div id="myholder" style="width:600px;background-image: linear-gradient(to bottom, #00BFFF , #FFFFFF);border:1px solid gray;">
+</div>
+</body>
+</html>
