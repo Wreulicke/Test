@@ -5,24 +5,32 @@
   <title>Test</title> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
-  <link rel="import" href="proto-element.html">
+  <link rel="import" href="project-form.html">
+  <link rel="import" href="talent-form.html">
   <link rel="import" href="header-link.html">
   <link rel="stylesheet" href="style.css">
   <script>
-    
+    $(function(){
+      $("a.header-link").click(function(e){
+        var index=$("a.header-link").index(this);
+        $(".tab").hide().eq(index).fadeIn();
+        e.preventDefault();
+      });
+      $("div.tab:not(:first)").hide();
+      
+    });
   </script>
 </head>
 <body>
   <header>
-    <header-link />
+    <header-link></header-link>
   </header>
   <div id="content">
-    <proto-element title="test"></proto-element>
-    <proto-element title="a"></proto-element>
-    <proto-element title="b"></proto-element>
-    <h1>test</h1>
+    <div class="tab"><div>プロジェクト</div><project-form></project-form></div>
+    <div class="tab"><div>タレント</div><talent-form></talent-form></div>
+    <div class="tab">no-content1</div>
+    <div class="tab">no-content2</div>
   </div>
-  <footer>
-  </footer>
+  <footer></footer>
 </body>
 </html>

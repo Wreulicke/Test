@@ -1,10 +1,10 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="proto-element.html">
+<link rel="import" href="my-input-element.html">
 <dom-module id="project-form">
   <template>
     <form>
       <template is="dom-repeat" items="{{items}}">
-        <proto-element name="{{item.name}}" label="{{item.label}}" type="{{item.type}}"></proto-element>
+        <my-input-element name="{{item.name}}" label="{{item.label}}" type="{{item.type}}"></my-input-element>
       </template>
       <input type="submit" />
     </form>
