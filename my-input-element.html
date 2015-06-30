@@ -1,0 +1,40 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<dom-module id="my-input-element">
+  <style>
+    :host label{
+      vertical-align:top;
+    }
+  </style>
+  <template>
+    <p>
+      <label name="{{name}}">{{label}}</label>
+      <template is="dom-if" if="{{text_area_flag}}">
+        <textarea name="{{name}}" rows="4" cols="30">{{label}}</textarea>
+      </template>
+      <template is="dom-if" if="{{!text_area_flag}}">
+        <input type="{{type}}" name="{{name}}" id="{{name}}" placeholder="{{name}}" />
+      </template>
+    </p>
+  </template>
+  <script>
+    Polymer({
+      is: "my-input-element",
+      properties:{
+        name:{
+          type:String,
+          notify:true,
+          value:"none"
+        },
+        type:{
+          type:String,
+          notify:true,
+          value:"text"
+        }
+      },
+      ready: function() {
+        this.label=this.label||this.name;
+        this.text_area_flag=(this.type=="textarea");
+      }
+    });
+  </script>
+<dom-module>
