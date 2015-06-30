@@ -1,0 +1,34 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="proto-element.html">
+<dom-module id="project-form">
+  <template>
+    <form>
+      <template is="dom-repeat" items="{{items}}">
+        <proto-element name="{{item.name}}" label="{{item.label}}" type="{{item.type}}"></proto-element>
+      </template>
+      <input type="submit" />
+    </form>
+  </template>
+  <script>
+    Polymer({
+      is: "project-form",
+      properties:{
+        items:{
+          type:Array,
+          value:[
+            {name:"cliantName",label:"顧客名"},
+            {name:"projectName",label:"案件名"},
+            {name:"salary",label:"金額"},
+            {name:"term",label:"期間",type:"date"},
+            {name:"count",label:"人数"},
+            {name:"role",label:"ポジション"},
+            {name:"working_process",label:"作業工程"},
+            {name:"skill",label:"スキル"},
+            {name:"memo",label:"備考",type:"textarea"},
+            {name:"updater",label:"更新者"},
+          ]
+        }
+      }
+    });
+  </script>
+<dom-module>
