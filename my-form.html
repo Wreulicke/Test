@@ -1,0 +1,20 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="my-input-element.html">
+<dom-module id="my-form">
+  <template>
+    <form>
+      <template is="dom-repeat" items="{{items}}">
+        <my-input-element name="{{item.name}}" label="{{item.label}}" type="{{item.type}}"></my-input-element>
+      </template>
+      <input type="submit" />
+    </form>
+  </template>
+  <script>
+    Polymer({
+      is: "my-form",
+      properties:{
+        items:Array
+      }
+    });
+  </script>
+<dom-module>

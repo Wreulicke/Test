@@ -1,0 +1,28 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="my-form.html">
+<dom-module id="talent-form">
+  <template>
+    <my-form items="{{items}}"></my-form>
+  </template>
+  <script>
+    Polymer({
+      is: "talent-form",
+      properties:{
+        items:{
+          type:Array,
+          value:[
+            {name:"cliantName",label:"顧客名"},
+            {name:"projectName",label:"案件名"},
+            {name:"salary",label:"金額"},
+            {name:"term",label:"期間",type:"date"},
+            {name:"count",label:"人数"},
+            {name:"role",label:"ポジション"},
+            {name:"skill",label:"スキル"},
+            {name:"memo",label:"備考",type:"textarea"},
+            {name:"updater",label:"更新者"},
+          ]
+        }
+      }
+    });
+  </script>
+<dom-module>
