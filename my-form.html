@@ -2,7 +2,7 @@
 <link rel="import" href="my-input-element.html">
 <dom-module id="my-form">
   <template>
-    <form>
+    <form  method="{{method}}" action="{{action}}">
       <template is="dom-repeat" items="{{items}}">
         <my-input-element name="{{item.name}}" label="{{item.label}}" type="{{item.type}}"></my-input-element>
       </template>
@@ -13,8 +13,19 @@
     Polymer({
       is: "my-form",
       properties:{
-        items:Array
+        items:Array,
+        action:String,
+        method:String
       }
+    });
+    $(function(){
+      console.log("test")
+      $("my-form form input[type=submit]").click(function(e){
+        console.log(this.action);
+        console.log(this.method);
+        e.preventDefault();
+        return false;
+      });
     });
   </script>
 <dom-module>

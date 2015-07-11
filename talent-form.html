@@ -2,12 +2,14 @@
 <link rel="import" href="my-form.html">
 <dom-module id="talent-form">
   <template>
-    <my-form items="{{items}}"></my-form>
+    <my-form action="{{action}}" method="{{method}}" items="{{items}}"></my-form>
   </template>
   <script>
     Polymer({
       is: "talent-form",
       properties:{
+        method:String,
+        action:String,
         items:{
           type:Array,
           value:[

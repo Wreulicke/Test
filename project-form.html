@@ -1,13 +1,15 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="my-input-element.html">
+<link rel="import" href="my-form.html">
 <dom-module id="project-form">
   <template>
-    <my-form items="{{items}}"></my-form>
+    <my-form  action="{{action}}" method="{{method}}" items="{{items}}"></my-form>
   </template>
   <script>
     Polymer({
       is: "project-form",
       properties:{
+        method:String,
+        action:String,
         items:{
           type:Array,
           value:[
